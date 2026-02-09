@@ -1,0 +1,25 @@
+{
+  "build": {
+    "env": {
+      "NEXT_PUBLIC_API_BASE_URL": "https://earnings-ai-backend-057a34debf24.herokuapp.com/api"
+    }
+  },
+  "env": {
+    "NEXT_PUBLIC_API_BASE_URL": "https://earnings-ai-backend-057a34debf24.herokuapp.com/api"
+  },
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [
+        { "type": "host", "value": "www.tradeearnings.ai" }
+      ],
+      "destination": "https://tradeearnings.ai/$1",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "destination": "/dashboard",
+      "permanent": true
+    }
+  ]
+}

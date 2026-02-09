@@ -46,12 +46,17 @@ Continue the Earnings AI revamp with stable frontend UX, reliable backend ingest
 - Push to GitHub `main` was initially blocked by legacy oversized file history (`frontend/node_modules/...next-swc...node`).
 - Published a clean snapshot to GitHub by creating/pushing an orphan branch without legacy blobs:
   - `publish-main-clean` -> `origin/main` (`792abd2`)
+- Added follow-up docs commit onto GitHub main:
+  - `a541565` docs: update memory and plan after GitHub publish setup
+- Realigned local `main` to `origin/main` so future pushes are straightforward.
+- Created safety backup before alignment:
+  - `backup/main-pre-align-20260209` (points to pre-align local history)
 
 ## Important Current Git State
 
-- Local `main` contains the incremental revamp commit history (latest: `c349ed5`).
-- Remote `origin/main` currently points to a clean snapshot root commit (`792abd2`) created for first successful GitHub publish.
-- Local branch `publish-main-clean` tracks `origin/main`.
+- Local `main` now tracks `origin/main` at `a541565`.
+- `origin/main` contains the clean published history suitable for GitHub pushes.
+- Pre-alignment local history is preserved on `backup/main-pre-align-20260209`.
 
 ## Known Environment Notes
 
@@ -60,11 +65,8 @@ Continue the Earnings AI revamp with stable frontend UX, reliable backend ingest
 
 ## Pending / Next
 
-1. Decide branch strategy:
-   - continue development on local `main` and publish snapshots to `origin/main`, or
-   - realign local `main` to `origin/main` and continue from the clean published history.
-2. Continue revamp implementation tasks from `plan.md`.
-3. Keep `memory.md` and `plan.md` updated after each meaningful change.
+1. Continue revamp implementation tasks from `plan.md`.
+2. Keep `memory.md` and `plan.md` updated after each meaningful change.
 
 ## Working Rules For Future Sessions
 

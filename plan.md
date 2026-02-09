@@ -26,7 +26,7 @@ Last updated: 2026-02-09
    - [x] Commit `.next` index cleanup so local builds stay quiet going forward
    - [x] Run backend tests in a prepared Python env
    - [x] Publish repository to GitHub (`krishnaadavi/earningsai`)
-   - [ ] Decide long-term branch alignment strategy between local `main` and `origin/main`
+   - [x] Align local `main` with `origin/main` after clean GitHub publish
 4. Documentation continuity
    - [x] Create persistent `memory.md`
    - [x] Create persistent `plan.md`
@@ -38,9 +38,9 @@ Last updated: 2026-02-09
 - Use `memory.md` as session continuity log (what happened and what is next).
 - Prefer incremental, testable changes and keep lint clean before moving to next task.
 - Temporary publish decision: use a clean GitHub root snapshot because legacy history contains oversized files blocked by GitHub.
+- Local `main` is now normalized to track `origin/main`; old pre-alignment history is retained on a backup branch.
 
 ## Immediate Next Actions
 
-1. Choose branch strategy to normalize local/remote history.
-2. Continue frontend/backend revamp items and update this plan as scope evolves.
-3. Optionally address backend deprecation warnings (`FastAPI on_event`, `pydantic dict`, httpx app shortcut) in a dedicated technical-debt pass.
+1. Continue frontend/backend revamp items and update this plan as scope evolves.
+2. Optionally address backend deprecation warnings (`FastAPI on_event`, `pydantic dict`, httpx app shortcut) in a dedicated technical-debt pass.

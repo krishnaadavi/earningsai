@@ -23,8 +23,10 @@ Last updated: 2026-02-09
    - [ ] Improve user-facing status/error messaging for ingestion failures
 3. Repo hygiene and release readiness
    - [x] Stop tracking `frontend/.next` artifacts in git index
-   - [ ] Commit `.next` index cleanup so local builds stay quiet going forward
+   - [x] Commit `.next` index cleanup so local builds stay quiet going forward
    - [x] Run backend tests in a prepared Python env
+   - [x] Publish repository to GitHub (`krishnaadavi/earningsai`)
+   - [ ] Decide long-term branch alignment strategy between local `main` and `origin/main`
 4. Documentation continuity
    - [x] Create persistent `memory.md`
    - [x] Create persistent `plan.md`
@@ -35,12 +37,10 @@ Last updated: 2026-02-09
 - Use `plan.md` as source of truth for roadmap/task status.
 - Use `memory.md` as session continuity log (what happened and what is next).
 - Prefer incremental, testable changes and keep lint clean before moving to next task.
+- Temporary publish decision: use a clean GitHub root snapshot because legacy history contains oversized files blocked by GitHub.
 
 ## Immediate Next Actions
 
-1. Decide and execute commit plan for:
-   - `.next` untracking cleanup
-   - dashboard fixes
-   - continuity docs
+1. Choose branch strategy to normalize local/remote history.
 2. Continue frontend/backend revamp items and update this plan as scope evolves.
 3. Optionally address backend deprecation warnings (`FastAPI on_event`, `pydantic dict`, httpx app shortcut) in a dedicated technical-debt pass.

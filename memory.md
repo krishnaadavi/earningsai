@@ -37,30 +37,34 @@ Continue the Earnings AI revamp with stable frontend UX, reliable backend ingest
 - Fixed trade ideas drawer action in `frontend/app/dashboard/page.tsx`:
   - `Open detail` now opens `DetailDrawer` and clears stale company/summary context.
 - Re-ran frontend lint after the drawer fix; still clean.
+- Committed changes in three slices:
+  - `dd29a61` chore(frontend): stop tracking Next.js build artifacts
+  - `b17bc57` fix(dashboard): stabilize summaries refresh and trade-idea detail drawer
+  - `c349ed5` docs: add persistent memory and revamp planning files
+- Added GitHub remote:
+  - `origin` => `https://github.com/krishnaadavi/earningsai.git`
+- Push to GitHub `main` was initially blocked by legacy oversized file history (`frontend/node_modules/...next-swc...node`).
+- Published a clean snapshot to GitHub by creating/pushing an orphan branch without legacy blobs:
+  - `publish-main-clean` -> `origin/main` (`792abd2`)
 
 ## Important Current Git State
 
-- The `.next` cleanup appears as staged deletions of previously tracked generated files (expected from untracking step).
-- Other meaningful pending files:
-  - `frontend/app/dashboard/page.tsx`
-  - `frontend/.vercelignore`
-  - `memory.md`
-  - `plan.md`
+- Local `main` contains the incremental revamp commit history (latest: `c349ed5`).
+- Remote `origin/main` currently points to a clean snapshot root commit (`792abd2`) created for first successful GitHub publish.
+- Local branch `publish-main-clean` tracks `origin/main`.
 
 ## Known Environment Notes
 
-- Backend tests not yet run in current shell environment because `pytest` is not installed (`No module named pytest`).
-- Existing dirty tree included tracked build artifacts under `frontend/.next` and one untracked file `frontend/.vercelignore`.
+- Backend tests pass in local virtualenv: `7 passed, 2 skipped`.
+- Frontend lint passes with no warnings/errors.
 
 ## Pending / Next
 
-1. Install backend test dependencies in a local virtualenv and run test suite.
+1. Decide branch strategy:
+   - continue development on local `main` and publish snapshots to `origin/main`, or
+   - realign local `main` to `origin/main` and continue from the clean published history.
 2. Continue revamp implementation tasks from `plan.md`.
 3. Keep `memory.md` and `plan.md` updated after each meaningful change.
-4. Decide commit slicing strategy:
-   - repo hygiene (`.next` untracking)
-   - frontend dashboard fixes
-   - continuity docs
 
 ## Working Rules For Future Sessions
 

@@ -27,6 +27,7 @@ Last updated: 2026-02-09
    - [x] Run backend tests in a prepared Python env
    - [x] Publish repository to GitHub (`krishnaadavi/earningsai`)
    - [x] Align local `main` with `origin/main` after clean GitHub publish
+   - [x] Trigger production Vercel deploy for current frontend state
 4. Documentation continuity
    - [x] Create persistent `memory.md`
    - [x] Create persistent `plan.md`
@@ -39,6 +40,7 @@ Last updated: 2026-02-09
 - Prefer incremental, testable changes and keep lint clean before moving to next task.
 - Temporary publish decision: use a clean GitHub root snapshot because legacy history contains oversized files blocked by GitHub.
 - Local `main` is now normalized to track `origin/main`; old pre-alignment history is retained on a backup branch.
+- Deploy frontend directly from `frontend/` via Vercel CLI when we need an immediate production refresh.
 
 ## Immediate Next Actions
 

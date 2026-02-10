@@ -41,8 +41,8 @@ export default function Sidebar({ todayCount, weekCount, watchlistCount = 0, onN
   const shellStyle: React.CSSProperties = {
     border: '1px solid var(--sidebar-border, var(--color-border))',
     borderRadius: 20,
-    background: 'linear-gradient(180deg, #ffffff, #f8fbff)',
-    boxShadow: '0 18px 36px rgba(15,23,42,0.08)',
+    background: 'var(--color-surface)',
+    boxShadow: '0 14px 28px rgba(15,23,42,0.12)',
     padding: 16,
     display: 'flex',
     flexDirection: 'column',
@@ -123,7 +123,7 @@ export default function Sidebar({ todayCount, weekCount, watchlistCount = 0, onN
               <div style={{ width: 34, height: 34, borderRadius: 10, background: 'linear-gradient(135deg, var(--color-primary), #8b5cf6)' }} />
               <div>
                 <div style={{ fontWeight: 700, lineHeight: 1 }}>Earnings Agent</div>
-                <div style={{ fontSize: 11, color: 'var(--color-muted)', marginTop: 4 }}>Alpha Workspace</div>
+                <div style={{ fontSize: 11, color: 'var(--color-muted)', marginTop: 4 }}>Command Workspace</div>
               </div>
             </div>
             <button style={newChatBtn} onClick={onNewChat}>+ New Chat</button>

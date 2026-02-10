@@ -225,14 +225,16 @@ export default function ChatPanel({ onClose }: Props) {
   }, [contextSuggestions, docMeta]);
 
   const card: React.CSSProperties = {
-    background: 'var(--color-surface)',
+    background: isDark
+      ? 'linear-gradient(180deg, rgba(17,24,39,0.92), rgba(9,12,21,0.96))'
+      : 'linear-gradient(180deg, #ffffff, #f8fbff)',
     border: '1px solid var(--color-border)',
-    borderRadius: 16,
+    borderRadius: 20,
     padding: 28,
     display: 'flex',
     flexDirection: 'column',
     gap: 24,
-    boxShadow: '0 20px 40px rgba(15, 23, 42, 0.08)'
+    boxShadow: isDark ? '0 26px 42px rgba(0,0,0,0.35)' : '0 20px 40px rgba(15, 23, 42, 0.10)'
   };
   const hero: React.CSSProperties = { display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 12, textAlign: 'center' };
   const heroIcon: React.CSSProperties = {
@@ -254,7 +256,7 @@ export default function ChatPanel({ onClose }: Props) {
     borderRadius: 999,
     padding: '4px 10px',
     border: '1px solid var(--color-border)',
-    background: 'var(--color-elevated)',
+    background: isDark ? 'rgba(148,163,184,0.14)' : 'var(--color-elevated)',
     fontSize: 12,
     color: 'var(--color-muted)'
   };
@@ -278,7 +280,7 @@ export default function ChatPanel({ onClose }: Props) {
     padding: '14px 16px',
     borderRadius: 14,
     border: '1px solid var(--color-border)',
-    background: 'var(--color-elevated)',
+    background: isDark ? 'rgba(30,41,59,0.72)' : 'var(--color-elevated)',
     color: 'var(--color-text)',
     fontSize: 14,
     textAlign: 'left',
@@ -307,7 +309,7 @@ export default function ChatPanel({ onClose }: Props) {
     padding: '12px 16px',
     borderRadius: 14,
     border: '1px solid var(--color-border)',
-    background: 'var(--color-surface)',
+    background: isDark ? 'rgba(15,23,42,0.62)' : 'var(--color-surface)',
     color: 'var(--color-text)',
     fontSize: 14
   };

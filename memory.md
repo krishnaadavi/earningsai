@@ -71,6 +71,15 @@ Continue the Earnings AI revamp with stable frontend UX, reliable backend ingest
   - deployment id: `dpl_Hhi4YzJSrVysGwAXY542JJUy52MP`
   - URL: `https://earnings-ai-frontend-7m9z518zt-krishnaadavi-gmailcoms-projects.vercel.app`
   - alias confirmed: `https://tradeearnings.ai`
+- Applied a second-pass design polish focused on visual quality:
+  - removed hardcoded light gradients that looked broken in dark mode
+  - improved sidebar shell theming and hierarchy labels
+  - refined chat panel surface/background contrast in dark mode
+  - tightened dashboard title/metadata treatment and section surface consistency
+- Redeployed polished UI to production:
+  - deployment id: `dpl_XPVvnCnj6MoBwoaneSdpLf9mVkDC`
+  - URL: `https://earnings-ai-frontend-j337sca51-krishnaadavi-gmailcoms-projects.vercel.app`
+  - alias confirmed: `https://tradeearnings.ai`
 
 ## Important Current Git State
 
@@ -91,6 +100,7 @@ Continue the Earnings AI revamp with stable frontend UX, reliable backend ingest
 3. If UI appears stale in browser, hard refresh or clear cache against latest deployment `dpl_H6BCYWCSMM1A44o4oRLYWu2DAyQ3`.
 4. Remove temporary visible build marker once user confirms updated interface is seen.
 5. Continue with deeper component-level redesign (ChatPanel/DetailDrawer) if current visual refresh is still not sufficient.
+6. If accepted, remove temporary deploy-verification marker language and finalize visual system tokens.
 
 ## Working Rules For Future Sessions
 

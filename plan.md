@@ -20,7 +20,8 @@ Last updated: 2026-02-09
    - [x] Ensure frontend lint is clean after dashboard updates
    - [x] Apply visual redesign pass for shell/sidebar/cards/dashboard hero
    - [ ] Remove temporary deploy-verification build badge after confirmation
-   - [ ] Optional phase 2 visual refresh for ChatPanel and DetailDrawer
+   - [x] Optional phase 2 visual refresh for ChatPanel and DetailDrawer
+   - [ ] Final micro-polish pass (spacing, typography scale, icon consistency)
 2. Data freshness and ingestion UX
    - [x] Add refresh + ingest admin actions in dashboard
    - [ ] Improve user-facing status/error messaging for ingestion failures

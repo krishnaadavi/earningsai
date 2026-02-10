@@ -512,12 +512,12 @@ export default function DashboardPage() {
   }, []);
 
   const summaryCardStyle: React.CSSProperties = {
-    background: 'linear-gradient(145deg, #ffffff 0%, #f8fbff 100%)',
+    background: 'var(--color-surface)',
     border: '1px solid var(--color-border)',
     borderRadius: 20,
     padding: 22,
     marginBottom: 16,
-    boxShadow: '0 22px 40px rgba(15,23,42,0.12)'
+    boxShadow: '0 18px 30px rgba(15,23,42,0.14)'
   };
   const summaryGridStyle: React.CSSProperties = {
     display: 'grid',
@@ -597,12 +597,13 @@ export default function DashboardPage() {
         </div>
       </section>
       <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 8, flexWrap: 'wrap' }}>
-        <h1 style={{ margin: 0, color: 'var(--color-text)', fontSize: 38, lineHeight: 1.05, letterSpacing: -0.8 }}>Earnings Command Center</h1>
-        <span style={{ fontSize: 11, borderRadius: 999, border: '1px solid var(--color-border)', padding: '3px 9px', color: 'var(--color-muted)', background: 'var(--color-surface)' }}>
-          UI refresh v2
+        <h1 style={{ margin: 0, color: 'var(--color-text)', fontSize: 36, lineHeight: 1.05, letterSpacing: -0.8 }}>Earnings Command Center</h1>
+        <span style={{ fontSize: 11, borderRadius: 999, border: '1px solid var(--color-border)', padding: '3px 9px', color: 'var(--color-muted)', background: 'var(--color-surface)', display: 'inline-flex', alignItems: 'center', gap: 6 }}>
+          <span style={{ width: 7, height: 7, borderRadius: 99, background: '#22c55e', boxShadow: '0 0 0 4px rgba(34,197,94,0.15)' }} />
+          Live
         </span>
       </div>
-      <div style={{ color: 'var(--color-muted)', marginBottom: 16, fontSize: 13 }}>Backend base: <code>{API_BASE}</code></div>
+      <div style={{ color: 'var(--color-muted)', marginBottom: 16, fontSize: 13 }}>Earnings intelligence workspace for events, highlights, and setup planning.</div>
 
       {/* Prominent Chat Panel */}
       {showChatPanel && (
@@ -610,7 +611,7 @@ export default function DashboardPage() {
       )}
 
       {/* Calendar strip */}
-      <section style={{ background: 'linear-gradient(180deg, #ffffff, #f8fbff)', border: '1px solid var(--color-border)', borderRadius: 18, padding: 16, boxShadow: '0 16px 28px rgba(15,23,42,0.08)' }}>
+      <section style={{ background: 'var(--color-surface)', border: '1px solid var(--color-border)', borderRadius: 18, padding: 16, boxShadow: '0 14px 26px rgba(15,23,42,0.12)' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
           <h2 style={{ margin: 0 }}>This Week</h2>
           <div style={{ display: 'flex', gap: 8 }}>

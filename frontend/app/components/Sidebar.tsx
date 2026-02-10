@@ -25,34 +25,44 @@ type Props = {
 
 export default function Sidebar({ todayCount, weekCount, watchlistCount = 0, onNewChat, onGoToday, onGoThisWeek, onGoMarketMovers, onGoWatchlist }: Props) {
   const container: React.CSSProperties = {
-    width: 260,
-    borderRight: '1px solid var(--sidebar-border, var(--color-border))',
-    background: 'var(--sidebar, var(--color-bg))',
+    width: 288,
     color: 'var(--sidebar-foreground, var(--color-text))',
-    padding: 16,
+    padding: 0,
     position: 'sticky',
-    top: 56, // below header
+    top: 24,
     alignSelf: 'flex-start',
-    height: 'calc(100vh - 56px)',
+    height: 'calc(100vh - 32px)',
     overflow: 'hidden',
     display: 'flex',
     flexDirection: 'column',
-    gap: 16,
+    gap: 12,
   };
 
-  const headerStyle: React.CSSProperties = { display: 'flex', alignItems: 'center', gap: 8, marginBottom: 12 };
+  const shellStyle: React.CSSProperties = {
+    border: '1px solid var(--sidebar-border, var(--color-border))',
+    borderRadius: 20,
+    background: 'linear-gradient(180deg, #ffffff, #f8fbff)',
+    boxShadow: '0 18px 36px rgba(15,23,42,0.08)',
+    padding: 16,
+    display: 'flex',
+    flexDirection: 'column',
+    gap: 14,
+    height: '100%',
+  };
+  const headerStyle: React.CSSProperties = { display: 'flex', alignItems: 'center', gap: 10, marginBottom: 12 };
   const newChatBtn: React.CSSProperties = {
-    width: '100%', padding: '10px 12px', borderRadius: 10,
+    width: '100%', padding: '11px 14px', borderRadius: 12,
     background: 'linear-gradient(90deg, var(--color-primary), #8b5cf6)',
-    color: '#fff', border: 'none', boxShadow: 'var(--shadow-1)'
+    color: '#fff', border: 'none', boxShadow: '0 12px 24px rgba(99,102,241,0.35)',
+    fontWeight: 600
   };
 
-  const sectionTitle: React.CSSProperties = { fontSize: 12, color: 'var(--color-muted)', margin: '14px 8px 8px' };
+  const sectionTitle: React.CSSProperties = { fontSize: 11, color: 'var(--color-muted)', margin: '8px 8px 6px', textTransform: 'uppercase', letterSpacing: 0.7, fontWeight: 600 };
   const listStyle: React.CSSProperties = { display: 'flex', flexDirection: 'column', gap: 6 };
 
   const itemStyle: React.CSSProperties = {
     display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-    padding: '10px 12px', borderRadius: 12, cursor: 'pointer',
+    padding: '10px 12px', borderRadius: 12, cursor: 'pointer', transition: 'all .15s ease'
   };
   const left: React.CSSProperties = { display: 'flex', alignItems: 'center', gap: 10 };
   const circle = (glyph: string, c: string) => (
@@ -60,14 +70,14 @@ export default function Sidebar({ todayCount, weekCount, watchlistCount = 0, onN
       style={{
         width: 32,
         height: 32,
-        borderRadius: 12,
+        borderRadius: 10,
         display: 'inline-flex',
         alignItems: 'center',
         justifyContent: 'center',
         background: c,
         color: '#fff',
         fontSize: 16,
-        boxShadow: '0 10px 18px rgba(99,102,241,0.16)'
+        boxShadow: '0 8px 16px rgba(15,23,42,0.2)'
       }}
     >
       {glyph}
@@ -106,73 +116,78 @@ export default function Sidebar({ todayCount, weekCount, watchlistCount = 0, onN
 
   return (
     <aside style={container}>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 16, flex: 1, overflow: 'auto', paddingRight: 6 }}>
-        <div>
-          <div style={headerStyle}>
-            <div style={{ width: 32, height: 32, borderRadius: 8, background: 'linear-gradient(135deg, var(--color-primary), #8b5cf6)' }} />
-            <div style={{ fontWeight: 700 }}>Earnings Agent</div>
+      <div style={shellStyle}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 16, flex: 1, overflow: 'auto', paddingRight: 6 }}>
+          <div>
+            <div style={headerStyle}>
+              <div style={{ width: 34, height: 34, borderRadius: 10, background: 'linear-gradient(135deg, var(--color-primary), #8b5cf6)' }} />
+              <div>
+                <div style={{ fontWeight: 700, lineHeight: 1 }}>Earnings Agent</div>
+                <div style={{ fontSize: 11, color: 'var(--color-muted)', marginTop: 4 }}>Alpha Workspace</div>
+              </div>
+            </div>
+            <button style={newChatBtn} onClick={onNewChat}>+ New Chat</button>
           </div>
-          <button style={newChatBtn} onClick={onNewChat}>+ New Chat</button>
+
+          <div>
+            <div style={sectionTitle}>Quick Actions</div>
+            <div style={listStyle}>
+              {actions.map((a, i) => (
+                <div
+                  key={i}
+                  style={{
+                    ...itemStyle,
+                    background: 'var(--sidebar-accent, var(--color-elevated))',
+                    border: '1px solid var(--sidebar-border, var(--color-border))'
+                  }}
+                  onClick={a.onClick}
+                >
+                  <div style={left}>
+                    {a.icon}
+                    <span style={{ fontSize: 14, fontWeight: 500 }}>{a.label}</span>
+                  </div>
+                  <div>
+                    {typeof a.count === 'number' ? pill(a.count) : null}
+                    {a.badgeText ? badge(a.badgeText) : null}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div>
+            <div style={sectionTitle}>Recent Chats</div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+              {recents.map((r, i) => (
+                <div key={i} style={{ padding: '10px 12px', borderRadius: 12, border: '1px solid var(--color-border)', background: 'var(--color-surface)' }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                    <div style={{ fontWeight: 600 }}>{r.title}</div>
+                    <span style={{ fontSize: 12, color: 'var(--color-muted)' }}>☆</span>
+                  </div>
+                  {r.subtitle && <div style={{ fontSize: 12, color: 'var(--color-muted)', marginTop: 2 }}>{r.subtitle}</div>}
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
 
-        <div>
-          <div style={sectionTitle}>Quick Actions</div>
-          <div style={listStyle}>
-            {actions.map((a, i) => (
+        <div style={{ paddingTop: 8, borderTop: '1px solid var(--sidebar-border, var(--color-border))' }}>
+          <div style={footerTitle}>Workspace</div>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+            {footerItems.map((item) => (
               <div
-                key={i}
+                key={item.label}
                 style={{
-                  ...itemStyle,
-                  background: 'var(--sidebar-accent, var(--color-elevated))',
+                  ...footerItemStyle,
+                  background: 'var(--color-surface)',
                   border: '1px solid var(--sidebar-border, var(--color-border))'
                 }}
-                onClick={a.onClick}
               >
-                <div style={left}>
-                  {a.icon}
-                  <span>{a.label}</span>
-                </div>
-                <div>
-                  {typeof a.count === 'number' ? pill(a.count) : null}
-                  {a.badgeText ? badge(a.badgeText) : null}
-                </div>
+                <span aria-hidden>{item.icon}</span>
+                <span>{item.label}</span>
               </div>
             ))}
           </div>
-        </div>
-
-        <div>
-          <div style={sectionTitle}>Recent Chats</div>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
-            {recents.map((r, i) => (
-              <div key={i} style={{ padding: '10px 12px', borderRadius: 10, border: '1px solid var(--color-border)', background: 'var(--color-surface)' }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                  <div style={{ fontWeight: 600 }}>{r.title}</div>
-                  <span style={{ fontSize: 12, color: 'var(--color-muted)' }}>☆</span>
-                </div>
-                {r.subtitle && <div style={{ fontSize: 12, color: 'var(--color-muted)', marginTop: 2 }}>{r.subtitle}</div>}
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      <div style={{ paddingTop: 8, borderTop: '1px solid var(--sidebar-border, var(--color-border))' }}>
-        <div style={footerTitle}>Workspace</div>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
-          {footerItems.map((item) => (
-            <div
-              key={item.label}
-              style={{
-                ...footerItemStyle,
-                background: 'var(--color-surface)',
-                border: '1px solid var(--sidebar-border, var(--color-border))'
-              }}
-            >
-              <span aria-hidden>{item.icon}</span>
-              <span>{item.label}</span>
-            </div>
-          ))}
         </div>
       </div>
     </aside>

@@ -17,11 +17,12 @@ export default function TickerChip({ ticker, company, tags = [], onClick, watchl
     display: 'inline-flex',
     alignItems: 'center',
     gap: 8,
-    padding: '6px 10px',
-    borderRadius: 999,
-    background: 'var(--color-elevated)',
+    padding: '8px 12px',
+    borderRadius: 12,
+    background: 'linear-gradient(180deg, var(--color-surface), var(--color-elevated))',
     color: 'var(--color-text)',
     border: '1px solid var(--color-border)',
+    boxShadow: '0 8px 18px rgba(15,23,42,0.07)',
   };
   const tagStyle = (t: string): React.CSSProperties => {
     const tl = (t || '').toLowerCase();
@@ -51,7 +52,7 @@ export default function TickerChip({ ticker, company, tags = [], onClick, watchl
   };
   return (
     <button onClick={onClick} style={baseStyle}>
-      <span style={{ fontWeight: 600, fontSize: 12 }}>{ticker}</span>
+      <span style={{ fontWeight: 700, fontSize: 12 }}>{ticker}</span>
       {company && <span style={{ fontSize: 11, color: 'var(--color-muted)' }}>{company}</span>}
       <span style={{ display: 'flex', gap: 6 }}>
         {tags.map((t, i) => (

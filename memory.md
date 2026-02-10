@@ -57,6 +57,11 @@ Continue the Earnings AI revamp with stable frontend UX, reliable backend ingest
   - production URL: `https://earnings-ai-frontend-o3wxn8u5y-krishnaadavi-gmailcoms-projects.vercel.app`
   - aliased to `https://tradeearnings.ai` and `https://www.tradeearnings.ai`
 - Verified backend health endpoint returns `{"status":"ok"}` at `https://earnings-ai-backend-057a34debf24.herokuapp.com/health`.
+- Added a visible dashboard marker (`Revamp build: 2026-02-09`) in `frontend/app/dashboard/page.tsx` to make deploy verification explicit.
+- Redeployed frontend to production:
+  - deployment id: `dpl_BNQ14dmLMyA1BLyGVonuqZa9heJo`
+  - URL: `https://earnings-ai-frontend-76vv5vcng-krishnaadavi-gmailcoms-projects.vercel.app`
+- Verified marker is present in live HTML at `https://tradeearnings.ai/dashboard`.
 
 ## Important Current Git State
 
@@ -75,6 +80,7 @@ Continue the Earnings AI revamp with stable frontend UX, reliable backend ingest
 1. Continue revamp implementation tasks from `plan.md`.
 2. Keep `memory.md` and `plan.md` updated after each meaningful change.
 3. If UI appears stale in browser, hard refresh or clear cache against latest deployment `dpl_H6BCYWCSMM1A44o4oRLYWu2DAyQ3`.
+4. Remove temporary visible build marker once user confirms updated interface is seen.
 
 ## Working Rules For Future Sessions
 

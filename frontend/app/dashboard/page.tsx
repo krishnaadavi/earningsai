@@ -596,7 +596,12 @@ export default function DashboardPage() {
           </div>
         </div>
       </section>
-      <h1 style={{ marginBottom: 8, color: 'var(--color-text)' }}>Earnings Dashboard</h1>
+      <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 8, flexWrap: 'wrap' }}>
+        <h1 style={{ margin: 0, color: 'var(--color-text)' }}>Earnings Dashboard</h1>
+        <span style={{ fontSize: 11, borderRadius: 999, border: '1px solid var(--color-border)', padding: '2px 8px', color: 'var(--color-muted)', background: 'var(--color-elevated)' }}>
+          Revamp build: 2026-02-09
+        </span>
+      </div>
       <div style={{ color: 'var(--color-muted)', marginBottom: 16 }}>Backend base: <code>{API_BASE}</code></div>
 
       {/* Prominent Chat Panel */}

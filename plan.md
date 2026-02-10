@@ -18,6 +18,7 @@ Last updated: 2026-02-09
    - [x] Fix dashboard hook lint warning
    - [x] Validate "Open detail" behavior for generated trade ideas
    - [x] Ensure frontend lint is clean after dashboard updates
+   - [ ] Remove temporary deploy-verification build badge after confirmation
 2. Data freshness and ingestion UX
    - [x] Add refresh + ingest admin actions in dashboard
    - [ ] Improve user-facing status/error messaging for ingestion failures

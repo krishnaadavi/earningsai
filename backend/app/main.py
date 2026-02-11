@@ -13,6 +13,7 @@ from app.routes import earnings
 from app.routes import watchlist
 from app.routes import admin
 from app.routes import market
+from app.routes import dashboard
 from app.db.base import init_db
 
 app = FastAPI(title="Earnings AI Backend")
@@ -59,6 +60,7 @@ app.include_router(earnings.router, prefix="/api")
 app.include_router(watchlist.router, prefix="/api")
 app.include_router(market.router, prefix="/api")
 app.include_router(admin.router, prefix="/api")
+app.include_router(dashboard.router, prefix="/api")
 
 @app.get("/")
 def root():
